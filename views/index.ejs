@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="https://cdn.bootcss.com/axios/0.18.0/axios.min.js"></script>
+</head>
+
+<body>
+    <h1 onClick="aaa()">
+        <%= title %>
+    </h1>
+    <p>EJS Welcome to
+        <%= title %>
+    </p>
+    <script>
+        function aaa() {
+            axios({
+                url: 'http://localhost:3000/pdf',
+                method: 'post',
+                responseType: 'blob', // important
+            }).then((response) => {
+                const url = window.URL.createObjectURL(new Blob([response.data]));
+                const link = document.createElement('a');
+                link.href = url;
+                link.setAttribute('download', 'file.pdf');
+                document.body.appendChild(link);
+                link.click();
+            });
+        }
+    </script>
+</body>
+
+</html>

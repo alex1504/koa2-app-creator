@@ -21,7 +21,7 @@ router.prefix('/users')
 
 router
     .post('/', jwt.userLoginAuth, UserController.getAllUser)
-    .post('/id/:id', jwt.userLoginAuth, scopeMiddleware, UserController.getUser)
+    .post('/id/:uid', jwt.userLoginAuth, scopeMiddleware, UserController.getUser)
     .post('/login', UserController.login)
 
 

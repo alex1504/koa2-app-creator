@@ -82,7 +82,6 @@ class FileDealer {
             });
         })
     }
-
 }
 
 module.exports = FileDealer

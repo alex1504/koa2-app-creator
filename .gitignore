@@ -75,3 +75,6 @@ typings/
 # editor
 .vscode
 .idea
+
+# redis tmp
+.rdb

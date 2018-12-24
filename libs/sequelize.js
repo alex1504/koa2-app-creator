@@ -2,6 +2,7 @@ const Sequelize = require('sequelize')
 const {
     DB_CONFIG
 } = require('../config')
+const chalk = require('chalk')
 
 const db = new Sequelize(DB_CONFIG.DATABASE, DB_CONFIG.USERNAEM, DB_CONFIG.PASSWORD, {
     host: DB_CONFIG.HOST,
@@ -39,10 +40,10 @@ const updateModels = () => {
 
 db.authenticate()
     .then(() => {
-        console.log('连接数据库成功!')
+        console.log(chalk.green(`---Connect database success---`))
     })
     .catch(err => {
-        console.error('不能连接数据库:', err)
+        console.error(chalk.red(`---Fail to connect database---`), err)
     })
 
 module.exports = {
